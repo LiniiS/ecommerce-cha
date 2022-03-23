@@ -22,6 +22,7 @@ import Produto from '../views/Produto/Produto'
 import AdicionaProduto from '../views/Produto/AdicionaProduto'
 import EditaProduto from '../views/Produto/EditaProduto'
 import ExibirDetalhesProduto from '../views/Produto/ExibirDetalhesProduto'
+import ListaTodosProdutos from '../views/Produto/ListaTodosProdutos'
 
 const routes = [
   {
@@ -85,6 +86,11 @@ const routes = [
     path: '/produto/exibir/:id',
     name: 'ExibirDetalhesProduto',
     component: ExibirDetalhesProduto
+  },
+  {
+    path: '/produto/todos',
+    name:  'ListaTodosProdutos',
+    component: ListaTodosProdutos
   },
 
   //clientes
