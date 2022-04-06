@@ -7,7 +7,7 @@
         <hr />
         <p class="title">Categorias</p>
         <div class="categorias d-flex justify-content-center mb-5">
-          <a href="#" class="badge badge-special mr-2 ml-2">Todos</a>
+          <a href="#" class="badge badge-special mr-2 ml-2" id="todos">Todos</a>
           <a href="#" class="badge badge-special mr-2 ml-2">Verde</a>
           <a href="#" class="badge badge-special mr-2 ml-2">Preto</a>
           <a href="#" class="badge badge-special mr-2 ml-2">Ervas</a>
@@ -94,6 +94,11 @@ h4 {
   color: #2c3e50;
   font-size: 1.1em;
 }
+#todos{
+    background: #9ac995;
+    color: #091e33;
+}
+
 .title {
   color: #142;
 }
