@@ -21,7 +21,9 @@
     <div class="row justify-content-center">
       <!-- insert productBoxComponent -->
       <div class="card m-5 cardbox-special" style="width: 18rem">
-        <div class="card-header mb-2 text-title font-weight-bold">Endereços</div>
+        <div class="card-header mb-2 text-title font-weight-bold">
+          Endereços
+        </div>
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Endereços</h6>
           <p class="card-text">
@@ -33,7 +35,9 @@
         </div>
       </div>
       <div class="card m-5 cardbox-special" style="width: 18rem">
-        <div class="card-header mb-2 text-title font-weight-bold">Dados Pessoais</div>
+        <div class="card-header mb-2 text-title font-weight-bold">
+          Dados Pessoais
+        </div>
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Dados</h6>
           <p class="card-text">Revise todos os seus dados, altere senhas</p>
@@ -45,7 +49,9 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Cartões</h6>
           <p class="card-text">Adicione ou altere seus cartões</p>
-          <a href="#" class="card-link">Detalhes</a>
+          <router-link class="card-link" :to="{ name: 'Cartao' }"
+            >Detalhes
+          </router-link>
         </div>
       </div>
       <div class="card m-5 cardbox-special" style="width: 18rem">
@@ -60,7 +66,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
@@ -74,7 +80,8 @@ export default {
   },
   created() {
     axios
-      .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      //  .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      .get("http://localhost:8081/cliente/admin/clientes")
       .then((resp) => {
         this.clientes = resp.data;
       });

@@ -48,7 +48,8 @@ export default {
                 imgUrl: this.imgUrl
             };
 
-            const baseURL = "https://api-asantos-cha.herokuapp.com";
+           // const baseURL = "https://api-asantos-cha.herokuapp.com";
+           const baseURL = "http://localhost:8081";
 
             axios({
                 method: 'post',

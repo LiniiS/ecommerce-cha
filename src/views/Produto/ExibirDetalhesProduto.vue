@@ -7,19 +7,18 @@
         <img :src="produto.urlImagem" class="img-fluid" />
       </div>
 
-      <div class="col-md-6 col-12 pt-3 pt-md-0">
+      <div class="col-md-6 col-12 pt-3 pt-md-0 text-left">
         <h4>{{ produto.nome }}</h4>
         <h6 class="categoria font-italic">{{ categoria.nome }}</h6>
         <h6 class="font-weight-bold">R$ {{ produto.preco }}</h6>
-
         <p>
           {{ produto.descricao }}
         </p>
-        <div class="features pt-3">
+        <div class="features pt-3 text-left">
           <hr>
           <h5><strong>Sobre este produto</strong></h5>
           <ul>
-            <li>As embalagens contém 100g do produto</li>
+            <li>As embalagens contém 50g do produto</li>
             <li>O produto é destinado à infusão</li>
             <li>Produto produzido de forma artesanal</li>
           </ul>

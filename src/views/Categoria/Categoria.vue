@@ -31,7 +31,8 @@ export default {
 
   data() {
     return {
-      baseURL: "https://api-asantos-cha.herokuapp.com/",
+     // baseURL: "https://api-asantos-cha.herokuapp.com/",
+     baseURL: "http://localhost:8081",
     };
   },
   methods: {},

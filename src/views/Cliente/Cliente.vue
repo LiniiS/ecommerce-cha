@@ -85,7 +85,8 @@ export default {
   },
   created() {
     axios
-      .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+    //  .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      .get("http://localhost:8081/cliente/admin/clientes")
       .then((resp) => {
         this.clientes = resp.data;
       });

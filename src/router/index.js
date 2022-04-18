@@ -12,6 +12,12 @@ import Endereco from '../views/Endereco/Endereco'
 import AdicionaEndereco from '../views/Endereco/AdicionaEndereco'
 import EditaEndereco from '../views/Endereco/EditaEndereco'
 
+import Cartao from '../views/Cartao/Cartao'
+import AdicionaCartao from '../views/Cartao/AdicionaCartao'
+import EditaCartao from '../views/Cartao/EditaCartao'
+
+
+
 
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
@@ -129,8 +135,23 @@ const routes = [
  { path: '/cliente/editaEndereco/:id',
   name: 'EditaEndereco',
   component: EditaEndereco
-
+},
+ //cartões
+ {
+  path: '/cliente/cartao',
+  name: 'Cartao',
+  component: Cartao
+},
+{
+  path: '/cliente/adicionaCartao',
+  name: 'AdicionaCartao',
+  component: AdicionaCartao
+},
+{ path: '/cliente/editaCartao/:id',
+name: 'EditaCartao',
+component: EditaCartao
 }
+
 
 ]
 

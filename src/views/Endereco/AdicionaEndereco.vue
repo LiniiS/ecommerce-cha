@@ -3,6 +3,9 @@
     <div class="row justify-content-center mt-3">
       <div class="text-center mb-5">
         <h3>Novo Endereço</h3>
+        <router-link :to="{ name: 'Cartao' }">
+          <button class="btn btn-special">Voltar</button>
+        </router-link>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -182,11 +185,9 @@ export default {
       numero: null,
       tipoEndereco: null,
       nome: null,
-
     };
   },
   methods: {
-     
     async adicionaEndereco() {
       const novoEndereco = {
         residencia: this.residencia,
@@ -205,9 +206,11 @@ export default {
 
       await axios
         //o token é passado via params, não usar o configs headers por enquanto
-        .post(`${this.baseURL}endereco/adiciona?token=${this.token}`, novoEndereco, {
-
-        })
+        .post(
+          `${this.baseURL}endereco/adiciona?token=${this.token}`,
+          novoEndereco,
+          {}
+        )
         .then(() => {
           this.$router.push({ name: "Endereco" });
           console.log(this.novoEndereco);
@@ -228,10 +231,10 @@ export default {
   //verificar esse created
   created() {
     axios
-      .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      // .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      .get("http://localhost:8081/cliente/admin/clientes")
       .then((resp) => {
         this.clientes = resp.data;
-
       });
   },
 };
