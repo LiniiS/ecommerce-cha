@@ -51,12 +51,20 @@ export default {
       await axios
         .post(`${this.baseURL}cliente/signin`, body)
         .then((res) => {
-          this.$router.replace("/");
+          //this.$router.replace("/");
+          //atualiza os dados (carrinho etc)
+          this.$emit("fetchData");
+          //envia o cliente pro painel admin dele
+          this.$router.push({name: 'ClienteLogado'});
+          //seta o token deste cliente na sessão
           localStorage.setItem("token", res.data.token);
           sweetalert({
+            title: "Seja bem vindo(a) à TeaShop!",
             text: "Login realizado com sucesso! Boas Compras!",
             icon: "success",
           });
+          
+          
         })
         .catch((err) => console.log("err", err));
     },

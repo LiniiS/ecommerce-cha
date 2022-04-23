@@ -30,6 +30,9 @@ import EditaProduto from '../views/Produto/EditaProduto'
 import ExibirDetalhesProduto from '../views/Produto/ExibirDetalhesProduto'
 import ListaTodosProdutos from '../views/Produto/ListaTodosProdutos'
 
+
+import Carrinho from '../views/Carrinho.vue'
+
 const routes = [
   {
     path: '/',
@@ -150,6 +153,12 @@ const routes = [
 { path: '/cliente/editaCartao/:id',
 name: 'EditaCartao',
 component: EditaCartao
+},
+//carrinho de compras
+{
+  path: '/carrinho',
+  name: 'Carrinho',
+  component: Carrinho
 }
 
 

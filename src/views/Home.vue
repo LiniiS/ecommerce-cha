@@ -8,7 +8,7 @@
               class="bg-white px-2 py-2 rounded"
               :to="{ name: 'ListaTodosProdutos' }"
             >
-              TeaShop - Chá Gourmet
+              <i class="fa fa-coffee" aria-hidden="true"></i> TeaShop - Chá Gourmet
             </router-link>
           </h3>
         </header>

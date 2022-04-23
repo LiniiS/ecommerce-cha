@@ -4,7 +4,8 @@
       <div class="row d-flex justify-content-center">
         <img id="logo" src="../assets/imagens/ts-logo.png" />
       </div>
-        <p class="text-dark font-weight-bold-2">Projeto de Laboratório de Engenharia de Software</p>
+        <p class="text-dark font-weight-bold-2">Projeto de Laboratório de Engenharia de Software </p>
+        <i class="fa fa-heart" aria-hidden="true"></i>
     </div>
   </footer>
 </template>
