@@ -55,7 +55,7 @@ export default {
           //atualiza os dados (carrinho etc)
           this.$emit("fetchData");
           //envia o cliente pro painel admin dele
-          this.$router.push({name: 'ClienteLogado'});
+          this.$router.push({name: 'Home'});
           //seta o token deste cliente na sessão
           localStorage.setItem("token", res.data.token);
           sweetalert({

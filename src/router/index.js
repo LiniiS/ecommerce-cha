@@ -17,8 +17,6 @@ import AdicionaCartao from '../views/Cartao/AdicionaCartao'
 import EditaCartao from '../views/Cartao/EditaCartao'
 
 
-
-
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
 import EditaCategoria from '../views/Categoria/EditaCategoria'
@@ -32,6 +30,11 @@ import ListaTodosProdutos from '../views/Produto/ListaTodosProdutos'
 
 
 import Carrinho from '../views/Carrinho.vue'
+
+import Sucesso from '../views/Pagamento/Sucesso'
+import Erro from '../views/Pagamento/Erro'
+import Checkout from '../views/Checkout/Checkout'
+
 
 const routes = [
   {
@@ -159,9 +162,24 @@ component: EditaCartao
   path: '/carrinho',
   name: 'Carrinho',
   component: Carrinho
+},
+//Pagamento Simplificado via API STRIPE
+{
+  path: '/pagamento/sucesso',
+  name: 'Sucesso',
+  component: Sucesso
+},
+{
+  path: '/pagamento/erro',
+  name: 'Erro',
+  component: Erro
+},
+{
+  path: '/pagamento/checkout',
+  name: 'Checkout',
+  component: Checkout
+
 }
-
-
 ]
 
 const router = createRouter({

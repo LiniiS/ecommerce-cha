@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.6.5",
+    "stripe": "^8.219.0",
     "sweetalert": "^2.1.2",
     "vue": "^3.0.0",
     "vue-material-design-icons": "^5.0.0",

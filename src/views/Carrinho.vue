@@ -77,7 +77,7 @@
       <h5>
         Total da Compra:<strong> R${{ custoTotal.toFixed(2) }} </strong>
       </h5>
-      <button class="btn btn-special">Confirmar</button>
+      <button type="button" class="btn btn-special" @click="checkout">Confirmar</button>
     </div>
   </div>
 </template>
@@ -124,6 +124,10 @@ export default {
         })
         .catch((err) => console.log("err", err));
     },
+
+    checkout(){
+      this.$router.push({name: 'Checkout'});
+    }
   },
 
   //a seção mounted é chamada antes da pagian ser carregada
