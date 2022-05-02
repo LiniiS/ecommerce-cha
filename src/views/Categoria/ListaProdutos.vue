@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <h4 class="pt-3">{{ categoria.nome }}</h4>
-        <h5>{{ msg }}</h5>
+        <h5 id="resultado-produtos-por-categoria">{{ msg }}</h5>
       </div>
     </div>
     <div class="row">

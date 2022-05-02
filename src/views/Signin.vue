@@ -8,6 +8,7 @@
             <div class="form-group">
               <label for="email">Email</label>
               <input
+                id="email"
                 v-model="email"
                 type="email"
                 class="form-control"
@@ -17,6 +18,7 @@
             <div class="form-group">
               <label for="senha">Senha</label>
               <input
+                id="senha"
                 v-model="senha"
                 type="password"
                 class="form-control"
@@ -55,7 +57,7 @@ export default {
           //atualiza os dados (carrinho etc)
           this.$emit("fetchData");
           //envia o cliente pro painel admin dele
-          this.$router.push({name: 'Home'});
+          this.$router.push({ name: "Home" });
           //seta o token deste cliente na sessão
           localStorage.setItem("token", res.data.token);
           sweetalert({
@@ -63,8 +65,6 @@ export default {
             text: "Login realizado com sucesso! Boas Compras!",
             icon: "success",
           });
-          
-          
         })
         .catch((err) => console.log("err", err));
     },

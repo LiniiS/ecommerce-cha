@@ -13,12 +13,14 @@
       <div class="col-12 justify-content-center d-flex pt-3">
         <div id="signup-form" class="flex-item border">
           <h2 class="title pt-4">Crie sua Conta</h2>
+          <!-- considerar o uso do ValidationObserver | VeeValidate -->
           <form @submit="signup" class="pt-4 pl-4 pr-4">
             <div class="form-row">
               <div class="col">
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input
+                    id="email"
                     type="email"
                     v-model="email"
                     class="form-control"
@@ -31,6 +33,7 @@
                 <div class="form-group">
                   <label for="nome">Nome Completo</label>
                   <input
+                    id="nome"
                     type="text"
                     v-model="nome"
                     class="form-control"
@@ -46,6 +49,7 @@
                 <div class="form-group">
                   <label for="telefone">Telefone</label>
                   <input
+                    id="telefone"
                     type="text"
                     v-model="telefone"
                     class="form-control"
@@ -59,6 +63,7 @@
                 <div class="form-group">
                   <label for="cpf">CPF</label>
                   <input
+                    id="cpf"
                     type="text"
                     v-model="cpf"
                     class="form-control"
@@ -74,6 +79,7 @@
                 <div class="form-group">
                   <label for="dtNascimento">Data de Nascimento</label>
                   <input
+                    id="dt-nascimento"
                     type="text"
                     v-model="dtNascimento"
                     class="form-control"
@@ -88,6 +94,7 @@
                 <div class="form-group">
                   <label for="genero">Genero</label>
                   <input
+                    id="genero"
                     type="text"
                     v-model="genero"
                     class="form-control"
@@ -101,6 +108,7 @@
             <div class="form-group">
               <label for="senha">Senha</label>
               <input
+                id="senha"
                 type="password"
                 v-model="senha"
                 class="form-control"
@@ -111,6 +119,7 @@
             <div class="form-group">
               <label for="senhaVerificada">Confirme sua senha</label>
               <input
+                id="senha-verificada"
                 type="password"
                 v-model="senhaVerificada"
                 class="form-control"
