@@ -53,6 +53,7 @@ export default {
       await axios
         .post(`${this.baseURL}cliente/signin`, body)
         .then((res) => {
+          //botar uma verificação de senha incorreta e informar cm swal
           //this.$router.replace("/");
           //atualiza os dados (carrinho etc)
           this.$emit("fetchData");

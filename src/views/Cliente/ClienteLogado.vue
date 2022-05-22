@@ -59,7 +59,9 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Pedidos</h6>
           <p class="card-text">Revise todos os seus pedidos</p>
-          <a href="#" class="card-link">Detalhes</a>
+          <router-link class="card-link" :to="{ name: 'ListaPedidosCliente' }"
+            >Detalhes
+          </router-link>
         </div>
       </div>
     </div>

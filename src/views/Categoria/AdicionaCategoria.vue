@@ -11,15 +11,15 @@
                 <form name="new-category">
                     <div class="form-group">
                         <label for="nome">Nome da Categoria</label>
-                        <input type="text" class="form-control" placeholder="oolong" v-model="nome"/>
+                        <input id="categoria" type="text" class="form-control" placeholder="oolong" v-model="nome"/>
                     </div>
                     <div class="form-group">
                         <label for="imgUrl">URL da Imagem da Categoria</label>
-                        <input type="url" class="form-control" placeholder="https://via.placeholder.com/150" v-model="imgUrl"/>
+                        <input id="imagem" type="url" class="form-control" placeholder="https://via.placeholder.com/150" v-model="imgUrl"/>
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição da Categoria</label>
-                        <textarea type="text" class="form-control" placeholder="chá tradicional chinês" v-model="descricao"/>
+                        <textarea id="descricao" type="text" class="form-control" placeholder="chá tradicional chinês" v-model="descricao"/>
                     </div>
                     <button type="button" class="btn btn-special" @click="adicionaCategoria">Salvar</button>
                 </form>

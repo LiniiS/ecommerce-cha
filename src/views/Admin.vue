@@ -29,6 +29,11 @@
             Trocas e Devoluções
           </button>
         </router-link>
+          <router-link :to="{ name: 'Venda' }">
+          <button type="button" class="btn btn-special" role="group">
+            Vendas
+          </button>
+        </router-link>
       </div>
     </section>
   </div>

@@ -22,7 +22,33 @@
   </div>
 </template>
 <script>
-export default {};
+import axios from 'axios';
+export default {
+  name: 'Sucesso',
+  props: ["baseURL"],
+  data(){
+    return {
+      token: null,
+      sessaoId: null
+    }
+  }, 
+  methods: {
+    salvaPedido(){
+      axios.post(this.baseURL + "pedido/novo/?token="+this.token+"&sessaoId="+this.sessaoId)
+      .then(() => {
+        window.location.href = ' /cliente/pedidos'
+        }).catch((error) => {
+          console.log(error);
+        })
+        
+    }
+  },
+  mounted(){
+    this.token = localStorage.getItem("token");
+    this.sessaoId = localStorage.getItem("sessaoId");
+    this.salvaPedido();
+  }
+};
 </script>
 <style scoped>
 .special-width {

@@ -40,6 +40,7 @@ export default {
       stripe: "",
       token: null,
       checkoutBody: [],
+      sessaoId: null,
     };
   },
   name: "Checkout",
@@ -53,7 +54,8 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             let produto = response.data;
-            for (let i = 0; i < produto.itensCarrinho.length; i++) {
+            let tam = Object.keys(produto.itensCarrinho).length;
+            for (let i = 0; i < tam; i++) {
               this.checkoutBody.push({
                // urlImagem: produto.itensCarrinho[i].produto.urlImagem, botar no backend
                 produto: produto.itensCarrinho[i].produto.nome,
@@ -75,12 +77,15 @@ export default {
         .post(`${this.baseURL}pedido/sessao-checkout`, this.checkoutBody)
         .then((response) => {
           localStorage.setItem("sessaoId", response.data.sessaoId);
+          return response.data; 
+        })
+        .then((session) => {
           //console.log("session", response.data);
           this.stripe.redirectToCheckout({
-              sessionId: response.data.sessaoId
-          })  
-        })
-        .catch((err) => console.log(err));
+              sessionId: session.sessaoId
+           });
+        });
+       // .catch((err) => console.log(err));
     },
   },
   mounted() {

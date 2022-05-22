@@ -5,7 +5,7 @@
         <h3>Categorias Disponíveis</h3>
 
         <router-link :to="{ name: 'AdicionaCategoria' }">
-          <button class="btn btn-special">Adicionar Categoria</button>
+          <button id="adicionar-categoria" class="btn btn-special">Adicionar Categoria</button>
         </router-link>
       </div>
     </div>

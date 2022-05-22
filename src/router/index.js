@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
+import Venda from '../views/Venda/Venda.vue'
 
 
 import Cliente from '../views/Cliente/Cliente'
@@ -16,6 +17,7 @@ import Cartao from '../views/Cartao/Cartao'
 import AdicionaCartao from '../views/Cartao/AdicionaCartao'
 import EditaCartao from '../views/Cartao/EditaCartao'
 
+import ListaPedidosCliente from '../views/Pedido/ListaPedidosCliente'
 
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
@@ -75,6 +77,12 @@ const routes = [
     path: '/admin/categoria/:id',
     name: 'EditaCategoria',
     component: EditaCategoria
+  },
+  //gerenciamento de vendas (grafico mockado)
+  {
+    path: '/admin/venda',
+    name: 'Venda',
+    component: Venda
   },
 
   //produtos
@@ -179,6 +187,12 @@ component: EditaCartao
   name: 'Checkout',
   component: Checkout
 
+},
+//Pedidos
+{
+  path: '/cliente/pedidos',
+  name: 'ListaPedidosCliente',
+  component: ListaPedidosCliente
 }
 ]
 
