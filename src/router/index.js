@@ -6,6 +6,8 @@ import Venda from '../views/Venda/Venda.vue'
 
 import Cliente from '../views/Cliente/Cliente'
 import ClienteLogado from '../views/Cliente/ClienteLogado'
+import ClienteLogadoDetalhes from '../views/Cliente/ClienteLogadoDetalhes'
+import ClienteLogadoTrocaSenha from '../views/Cliente/ClienteLogadoTrocaSenha'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
 
@@ -18,6 +20,7 @@ import AdicionaCartao from '../views/Cartao/AdicionaCartao'
 import EditaCartao from '../views/Cartao/EditaCartao'
 
 import ListaPedidosCliente from '../views/Pedido/ListaPedidosCliente'
+import ExibirDetalhesPedido from '../views/Pedido/ExibirDetalhesPedido'
 
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
@@ -134,6 +137,16 @@ const routes = [
     name: 'Signin',
     component: Signin
   },
+  {
+    path: '/cliente/detalhes',
+    name: 'ClienteLogadoDetalhes',
+    component: ClienteLogadoDetalhes
+  },
+  {
+    path: '/cliente/detalhes/dados',
+    name: 'ClienteLogadoTrocaSenha',
+    component: ClienteLogadoTrocaSenha
+  },
   //endereços
   {
     path: '/cliente/enderecos',
@@ -193,6 +206,11 @@ component: EditaCartao
   path: '/cliente/pedidos',
   name: 'ListaPedidosCliente',
   component: ListaPedidosCliente
+},
+{
+  path: '/cliente/pedido/:id',
+  name: 'ExibirDetalhesPedido',
+  component: ExibirDetalhesPedido
 }
 ]
 

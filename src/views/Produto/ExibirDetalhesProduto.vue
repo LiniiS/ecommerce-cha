@@ -42,7 +42,7 @@
             <li>Produzido, preparado e embalado artesanalmente</li>
           </ul>
         </div>
-        <!-- btn Lista de Desejos -->
+        <!-- btn Lista de Desejos 
         <button
           id="btn-wishlist"
           class="btn btn-special mr-3 p-1 py-0"
@@ -50,12 +50,15 @@
         >
           {{ wishlistIcone }}
         </button>
-         
-         <!--
+         -->
+        
         <router-link :to="{name: 'Carrinho'}" class="btn btn-special mr-3 p-1 py-0" >
           <i class="fa fa-shopping-cart" aria-hidden="true"> Ver Carrinho</i>
         </router-link>
-          -->
+        <router-link :to="{name: 'ListaTodosProdutos'}" class="btn btn-special mr-3 p-1 py-0" >
+          <i class="fa fa-coffee" aria-hidden="true"> Ver Produtos</i>
+        </router-link>
+        
         
       </div>
     </div>

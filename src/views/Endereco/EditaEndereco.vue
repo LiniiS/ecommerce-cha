@@ -3,6 +3,7 @@
     <div class="row justify-content-center mt-3">
       <div class="text-center mb-5">
         <h3>Editar Endereço</h3>
+        <small class="card bg-light m-2 p-2">Em desenvolvimento - 05/06</small>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -117,7 +118,7 @@
           <!-- tipo do endereço -->
           <div class="form-group">
             <label class="label-title">Tipo de Endereco</label>
-            <select class="form-control" v-model="$tipoEndereco" required>
+            <select class="form-control" v-model="tipoEndereco" required>
               <option value="ENTREGA">Entrega</option>
               <option value="COBRANCA">Cobrança</option>
               <option value="COBRANCA_E_ENTREGA">Cobrança e Entrega</option>
@@ -152,7 +153,19 @@ export default {
     return {
       id: null,
       token: null,
-      endereco: null,
+      endereco: {
+        nome: "",
+        residencia: "",
+        logradouro: "",
+        numero: "",
+        bairro: "",
+        cidade: "",
+        estado: "",
+        pais: "",
+        cep: "",
+        observacao: "",
+        tipoEndereco: "",
+      },
     };
   },
 
@@ -176,10 +189,8 @@ export default {
       await axios
         .get(`${this.baseURL}endereco/lista/${this.token}`)
         .then((data) => {
-          this.enderecos = data.data;
-          //proxy
-          // console.log(this.enderecos);
-          //arrayzado
+          this.endereco = data.data;
+
           // console.log(JSON.parse(JSON.stringify(this.enderecos)));
         })
         .catch((err) => {

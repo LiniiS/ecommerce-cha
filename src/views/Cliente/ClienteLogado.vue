@@ -41,7 +41,9 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Dados</h6>
           <p class="card-text">Revise todos os seus dados, altere senhas</p>
-          <a href="#" class="card-link">Detalhes</a>
+          <router-link class="card-link" :to="{ name: 'ClienteLogadoDetalhes' }"
+            >Detalhes
+          </router-link>
         </div>
       </div>
       <div class="card m-5 cardbox-special" style="width: 18rem">

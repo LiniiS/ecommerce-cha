@@ -1,28 +1,37 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="text-center mt-5 mb-5">
-        <h3>Cartões Cadastrados</h3>
-
-        <!-- Colocar um "Alterar senha -->
-        <router-link :to="{ name: 'AdicionaCartao' }">
-          <button class="btn btn-special">Trocar senha</button>
-        </router-link>
-        <!-- Volta pra Home do Cliente -->
-        <router-link :to="{ name: 'ClienteLogado' }">
-          <button class="btn btn-special">Voltar</button>
-        </router-link>
+    <div class="row justify-content-center mt-3">
+      <div class="text-center mb-5 mt-5">
+        <h2>Olá Cliente!</h2>
+        <h6 class="text-dark">Painel Administrativo</h6>
       </div>
     </div>
-    <!-- Forms pra alterar os dados do cliente | a senha será alterada em outra view -->
-    <div class="row mb-5">
-       
-
-
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header mb-2 text-dark">
+            Alteração de Dados Cadastrais
+          </div>
+          <div class="row-3 mb-3">
+            <router-link :to="{ name: 'ClienteLogado' }">
+              <button class="btn btn-special">Dados Pessoais</button>
+            </router-link>
+            <router-link :to="{ name: 'ClienteLogadoTrocaSenha' }">
+              <button class="btn btn-special">Alterar Senha</button>
+            </router-link>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- insert productBoxComponent -->
+    </div>
   </div>
 </template>
 <script>
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   name: "ClienteLogadoDetalhes",
@@ -31,23 +40,19 @@ export default {
   data() {
     return {
       token: null,
-      cartoes: null,
     };
   },
-  methods: {
-    fetchDadosCliente() {
-      axios
-        
-    },
-  },
+  methods: {},
 
   mounted() {
     //token na sessão após login
     this.token = localStorage.getItem("token");
     //token tem um clienteId, mas o clienteId n tem um token
-    this.fetchCartoes();
   },
 };
 </script>
 <style scoped>
+.btn-special {
+  font-size: 0.7em;
+}
 </style>
