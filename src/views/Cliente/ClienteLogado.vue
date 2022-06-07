@@ -13,7 +13,7 @@
           <div class="card-header mb-2 text-muted">Acesso Rápido</div>
 
           <a href="#" class="card-link">Cupons</a>
-          <a href="#" class="card-link">Trocas e Devoluções</a>
+          <a href="#" class="card-link">Trocas Solicitadas</a>
         </div>
       </div>
       <div class="col-md-4"></div>

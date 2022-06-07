@@ -16,7 +16,7 @@
     <hr />
     <router-link :to="{ name: 'Admin' }">
       <button type="button" class="btn btn-special float-left mb-2" role="group">
-        Painel Admin
+        Voltar
       </button>
     </router-link>
     <form class="float-right mb-2">

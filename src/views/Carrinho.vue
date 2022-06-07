@@ -55,7 +55,7 @@
               class="text-right"
               @click="removeItemDoCarrinho(itemCarrinho.id)"
               ><i class="fa fa-times text-dark" aria-hidden="true"></i> Remover
-              item</a
+              produto</a
             >
          
         </div>
@@ -77,7 +77,7 @@
       <h5>
         Total da Compra:<strong> R${{ custoTotal.toFixed(2) }} </strong>
       </h5>
-      <button type="button" class="btn btn-special" @click="checkout">Confirmar</button>
+      <button type="button" class="btn btn-special" @click="checkout">Seguir para Pagamento</button>
     </div>
   </div>
 </template>

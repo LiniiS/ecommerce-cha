@@ -5,7 +5,7 @@
                 <h3>Produtos disponíveis</h3>
 
                 <router-link :to="{ name: 'AdicionaProduto'}">
-                    <button class="btn btn-special">Adiciona Produto</button>
+                    <button class="btn btn-special">Adicionar Produto</button>
                 </router-link>   
 
             </div>
