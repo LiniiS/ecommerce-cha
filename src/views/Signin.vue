@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async signin(e) {
-      e.preventDefault();
+       e.preventDefault();
       const body = {
         email: this.email,
         senha: this.senha,
@@ -58,7 +58,7 @@ export default {
           //atualiza os dados (carrinho etc)
           this.$emit("fetchData");
           //envia o cliente pro painel admin dele
-          this.$router.push({ name: "Home" });
+          this.$router.replace("/");
           //seta o token deste cliente na sessão
           localStorage.setItem("token", res.data.token);
           sweetalert({

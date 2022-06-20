@@ -21,6 +21,7 @@ import EditaCartao from '../views/Cartao/EditaCartao'
 
 import ListaPedidosCliente from '../views/Pedido/ListaPedidosCliente'
 import ExibirDetalhesPedido from '../views/Pedido/ExibirDetalhesPedido'
+import SolicitarTrocaItemPedido from '../views/Pedido/SolicitarTrocaItemPedido'
 
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
@@ -33,6 +34,7 @@ import EditaProduto from '../views/Produto/EditaProduto'
 import ExibirDetalhesProduto from '../views/Produto/ExibirDetalhesProduto'
 import ListaTodosProdutos from '../views/Produto/ListaTodosProdutos'
 
+import ExibirSolicitacaoTrocas from '../views/Troca/ExibirSolicitacaoTrocas'
 
 import Carrinho from '../views/Carrinho.vue'
 
@@ -80,6 +82,11 @@ const routes = [
     path: '/admin/categoria/:id',
     name: 'EditaCategoria',
     component: EditaCategoria
+  },
+  {
+    path: '/admin/trocas',
+    name:'ExibirSolicitacaoTrocas',
+    component: ExibirSolicitacaoTrocas
   },
   //gerenciamento de vendas (grafico mockado)
   {
@@ -211,6 +218,11 @@ component: EditaCartao
   path: '/cliente/pedido/:id',
   name: 'ExibirDetalhesPedido',
   component: ExibirDetalhesPedido
+},  
+{
+  path: '/cliente/troca/:id',
+  name: 'SolicitarTrocaItemPedido',
+  component: SolicitarTrocaItemPedido
 }
 ]
 

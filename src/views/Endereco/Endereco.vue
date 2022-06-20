@@ -4,11 +4,11 @@
       <div class="text-center mt-5 mb-5">
         <h3>Enderecos Cadastrados</h3>
 
-        <router-link :to="{ name: 'AdicionaEndereco' }">
+        <router-link id="adicionar-endereco" :to="{ name: 'AdicionaEndereco' }">
           <button class="btn btn-special">Adicionar Endereco</button>
         </router-link>
         <router-link :to="{ name: 'ClienteLogado' }">
-          <button class="btn btn-special">Voltar</button>
+          <button id="voltar" class="btn btn-special">Voltar</button>
         </router-link>
       </div>
     </div>

@@ -4,7 +4,7 @@
       <div class="text-center mt-5 mb-5">
         <h3>Cartões Cadastrados</h3>
 
-        <router-link :to="{ name: 'AdicionaCartao' }">
+        <router-link id="adicionar-cartao" :to="{ name: 'AdicionaCartao' }">
           <button class="btn btn-special">Adicionar Cartão</button>
         </router-link>
         <router-link :to="{ name: 'ClienteLogado' }">

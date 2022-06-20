@@ -20,10 +20,11 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Quantidade</span>
             </div>
-            <input type="number" class="form-control" v-model="quantidade" />
+            <input id="quantidade" type="number" class="form-control" v-model="quantidade" />
           </div>
           <div class="input-group col-md-4 col-4 p-0">
             <button
+            
               class="btn btn-special"
               id="btn-carrinho"
               @click="adicionarAoCarrinho"
@@ -52,10 +53,10 @@
         </button>
          -->
         
-        <router-link :to="{name: 'Carrinho'}" class="btn btn-special mr-3 p-1 py-0" >
+        <router-link id="ver-carrinho" :to="{name: 'Carrinho'}" class="btn btn-special mr-3 p-1 py-0" >
           <i class="fa fa-shopping-cart" aria-hidden="true"> Ver Carrinho</i>
         </router-link>
-        <router-link :to="{name: 'ListaTodosProdutos'}" class="btn btn-special mr-3 p-1 py-0" >
+        <router-link id="ver-produtos" :to="{name: 'ListaTodosProdutos'}" class="btn btn-special mr-3 p-1 py-0" >
           <i class="fa fa-coffee" aria-hidden="true"> Ver Produtos</i>
         </router-link>
         

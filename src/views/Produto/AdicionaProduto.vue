@@ -10,7 +10,7 @@
         <form name="novo-produto">
           <div class="form-group">
             <label >Categoria</label>
-            <select class="form-control" v-model="categoriaId" required>
+            <select id="categoria" class="form-control" v-model="categoriaId" required>
               <option
                 v-for="categoria in categorias"
                 :key="categoria.id"
@@ -24,6 +24,7 @@
           <div class="form-group">
             <label class="label-title">Nome</label>
             <input
+            id="nome"
               type="text"
               class="form-control"
               placeholder="Ti Kwan"
@@ -36,6 +37,7 @@
               >Sabor</label
             >
             <input
+            id="sabor"
               type="text"
               class="form-control"
               placeholder="suave"
@@ -49,6 +51,7 @@
               >Imagem Ilustrativa do Produto</label
             >
             <input
+            id="imagem"
               type="url"
               class="form-control"
               placeholder="https://via.placeholder.com/500"
@@ -59,6 +62,7 @@
           <div class="form-group">
             <label class="label-title">Preço</label>
             <input
+            id="preco"
               type="text"
               class="form-control"
               placeholder="25.99"
@@ -71,6 +75,7 @@
               >Descrição</label
             >
             <textarea
+            id="descricao"
               type="text"
               class="form-control"
               placeholder="chá levemente adocicado, blend de ervas..."
@@ -79,6 +84,7 @@
           </div>
 
           <button
+          id="adicionar-produto"
             type="button"
             class="btn btn-special"
             @click="adicionaProduto"

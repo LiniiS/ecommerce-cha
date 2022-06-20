@@ -77,7 +77,7 @@
       <h5>
         Total da Compra:<strong> R${{ custoTotal.toFixed(2) }} </strong>
       </h5>
-      <button type="button" class="btn btn-special" @click="checkout">Seguir para Pagamento</button>
+      <button id="pagamento-stripe" type="button" class="btn btn-special" @click="checkout">Seguir para Pagamento</button>
     </div>
   </div>
 </template>

@@ -26,7 +26,7 @@
                 />
               </div>
             </div>
-            <!-- campo da senha pra dupla verificação 
+            
             <div class="col">
               <div class="form-group">
                 <label class="label-title" for="nova-senha-verificada"
@@ -41,7 +41,7 @@
                 />
               </div>
             </div>
-            -->
+            
           </div>
           <button type="button" class="btn btn-special" @click="alteraSenha">
             Salvar
@@ -53,36 +53,49 @@
 </template>
 <script>
 import axios from "axios";
-import sweetAlert from "sweetalert";
+import sweetalert from "sweetalert";
 export default {
   name: "ClienteLogadoTrocaSenha",
   props: ["baseURL"],
   data() {
     return {
       token: null,
-      novaSenha: "",
-      novaSenhaVerificada: "",
+      novaSenha: null,
+      novaSenhaVerificada: null,
     };
   },
   methods: {
     //post no endpoint de update de senha do cliente
-    async alteraSenha() {
-      //adicionar método pra verificar as senhas 
-     await axios
-        .put(
-          `${this.baseURL}cliente/atualiza/senha/${this.token}`,
-          { novaSenha : this.novaSenha }
-        )
-        .then((response) => {
-          if (response.status == 200) {
-            this.$router.push({ name: "ClienteLogado" });
-            sweetAlert({
-              text: "Senha alterada com sucesso!",
-              icon: "success",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
+    async alteraSenha(e) {
+      e.preventDefault();
+      if(this.novaSenha == this.NovaSenhaVerificada) {
+        const pswdUpdated = {
+          senha: this.novaSenha,
+          senhaVerificada: this.novaSenhaVerificada
+
+        };
+        console.log(pswdUpdated);
+      await axios
+          .put(
+            `${this.baseURL}cliente/atualiza/senha/${this.token}`,
+            pswdUpdated
+          )
+          .then((response) => {
+            if (response.status == 200) {
+              this.$router.push({ name: "ClienteLogado" });
+              sweetalert({
+                text: "Senha alterada com sucesso!",
+                icon: "success",
+              });
+            }
+          })
+          .catch((err) => console.log(err));
+      }else{
+        sweetalert({
+          text: "As senhas digitadas não conferem. Tente novamente",
+          icon: "error",
+        });
+      }
     },
   },
   mounted() {

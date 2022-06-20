@@ -9,7 +9,7 @@
 
     <!-- aviso checkout redirection -->
     <div class="jumbotron">
-      <h2 class="display-5">Pedido realizado!</h2>
+      <h2 class="display-5">Atenção!</h2>
       <p class="lead">Você será redirecionado para sessão de Pagamentos.</p>
       <hr class="my-4" />
       <p class="text-muted">
@@ -19,6 +19,7 @@
         <a href="https://stripe.com/br">Stripe Pagamentos.</a>
       </p>
       <button
+        id="checkout-stripe"
         type="button"
         class="btn btn-special"
         @click="seguirParaCheckout"

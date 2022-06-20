@@ -29,7 +29,7 @@
           <p class="card-text">
             Cadastre novos endereços ou edite os endereços atuais
           </p>
-          <router-link class="card-link" :to="{ name: 'Endereco' }"
+          <router-link id="detalhes-enderecos" class="card-link" :to="{ name: 'Endereco' }"
             >Detalhes
           </router-link>
         </div>
@@ -41,7 +41,7 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Dados</h6>
           <p class="card-text">Revise todos os seus dados, altere senhas</p>
-          <router-link class="card-link" :to="{ name: 'ClienteLogadoDetalhes' }"
+          <router-link id="detalhes-dados" class="card-link" :to="{ name: 'ClienteLogadoDetalhes' }"
             >Detalhes
           </router-link>
         </div>
@@ -51,7 +51,7 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Cartões</h6>
           <p class="card-text">Adicione ou altere seus cartões</p>
-          <router-link class="card-link" :to="{ name: 'Cartao' }"
+          <router-link id="detalhes-cartoes" class="card-link" :to="{ name: 'Cartao' }"
             >Detalhes
           </router-link>
         </div>
@@ -61,7 +61,7 @@
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Meus Pedidos</h6>
           <p class="card-text">Revise todos os seus pedidos</p>
-          <router-link class="card-link" :to="{ name: 'ListaPedidosCliente' }"
+          <router-link id="detalhes-pedidos" class="card-link" :to="{ name: 'ListaPedidosCliente' }"
             >Detalhes
           </router-link>
         </div>

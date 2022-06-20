@@ -14,7 +14,7 @@
           <!-- tipo da Bandeira do Cartão -->
           <div class="form-group">
             <label class="label-title">Bandeiras aceitas</label>
-            <select class="form-control" v-model="bandeira" required>
+            <select id="bandeira-cartao" class="form-control" v-model="bandeira" required>
               <option disabled value="">Selecione uma bandeira</option>
               <option value="AMERICAN_EXPRESS">American Express</option>
               <option value="ELO">Elo</option>
@@ -31,6 +31,7 @@
               <div class="form-group">
                 <label class="label-title" for="numero-cartao">Número</label>
                 <input
+                id="numero-cartao"
                   type="text"
                   v-model="numeroCartao"
                   class="form-control"
@@ -46,6 +47,7 @@
                   >Nome Impresso</label
                 >
                 <input
+                  id="nome-cartao"
                   type="text"
                   v-model="nomeImpresso"
                   class="form-control"
@@ -62,6 +64,7 @@
               <div class="form-group">
                 <label class="label-title" for="cvv">CVV</label>
                 <input
+                id="cvv-cartao"
                   type="text"
                   v-model="cvv"
                   class="form-control"
@@ -74,6 +77,7 @@
           </div>
           <div class="form-check my-1 mr-sm-2 mb-3">
             <input
+              
               type="checkbox"
               class="form-check-input"
               id="cartao-padrao"
@@ -88,7 +92,7 @@
           
           </div>
          
-          <button type="button" class="btn btn-special" @click="adicionaCartao">
+          <button id="salvar-cartao" type="button" class="btn btn-special" @click="adicionaCartao">
             Salvar
           </button>
         </form>

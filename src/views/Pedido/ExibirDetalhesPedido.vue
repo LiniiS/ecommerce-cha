@@ -21,13 +21,13 @@
       <div class="col-md-5 px-3">
         <div class="text-left card-block px-3">
           <h6 class="card-title font-weight-bold mt-3">
-            {{itemPedido.produto.nome}}
+            {{ itemPedido.produto.nome }}
           </h6>
-          <p id="status-item" class="mb-0 ">
-              Status do item no pedido: {{itemPedido.status}}
+          <p id="status-item" class="mb-0">
+            Status do item no pedido: {{ itemPedido.status }}
           </p>
           <p id="quantidade-item" class="mb-0">
-            Quantidade de items:  {{ itemPedido.quantidade }}
+            Quantidade de items: {{ itemPedido.quantidade }}
           </p>
 
           <p id="preco-unitario" class="mb-0">
@@ -37,7 +37,13 @@
             Valor Total : R$ {{ itemPedido.quantidade * itemPedido.valor }}
           </p>
         </div>
-        <a class="card-link btn-special" id="link-troca" href=#>Solicitar Troca</a>
+        <router-link
+          :to="{
+            name: 'SolicitarTrocaItemPedido',
+            params: { id: itemPedido.id },
+          }"
+          ><button class="btn btn-special" id="link-troca">Solicitar troca</button
+        ></router-link>
       </div>
       <div class="col-2"></div>
       <div class="col-12"><hr /></div>
@@ -57,8 +63,7 @@ export default {
       // eslint-disable-next-line vue/no-dupe-keys
       pedido: {},
       // eslint-disable-next-line vue/no-dupe-keys
-      pedidoId: 0
-      
+      pedidoId: 0,
     };
   },
   methods: {
@@ -70,8 +75,8 @@ export default {
           (response) => {
             if (response.status === 200) {
               this.pedido = response.data;
-              
-              this.itemsPedido = this.pedido.itemsPedido
+
+              this.itemsPedido = this.pedido.itemsPedido;
             }
           },
           (err) => console.log(err)
@@ -98,7 +103,7 @@ h5 {
   object-fit: cover;
 }
 
-#link-troca{
-    font-size: 0.7em;
+#link-troca {
+  font-size: 0.7em;
 }
 </style>

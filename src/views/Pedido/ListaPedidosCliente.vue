@@ -25,7 +25,7 @@
       <div class="col-md-5 px-3">
         <div class="card-block text-left px-3">
           <h6 class="card-title">
-            <router-link v-bind:to="'/cliente/pedido/'+pedido.id"
+            <router-link  id="numero-pedido" v-bind:to="'/cliente/pedido/'+pedido.id"
               >Pedido nº {{ pedido.id }}</router-link
             >
           </h6>

@@ -3,8 +3,8 @@
     <div class="row justify-content-center mt-3">
       <div class="text-center mb-5">
         <h3>Novo Endereço</h3>
-        <router-link :to="{ name: 'Cartao' }">
-          <button class="btn btn-special">Voltar</button>
+        <router-link :to="{ name: 'Endereco' }">
+          <button id="voltar" class="btn btn-special">Voltar</button>
         </router-link>
       </div>
     </div>
@@ -14,7 +14,7 @@
           <!-- tipo da residencia -->
           <div class="form-group">
             <label class="label-title">Tipo de Residência</label>
-            <select class="form-control" v-model="residencia" required>
+            <select id="tipo-residencia" class="form-control" v-model="residencia" required>
               <option value="CASA">Casa</option>
               <option value="APARTAMENTO">Apartamento</option>
 
@@ -27,6 +27,7 @@
               <div class="form-group">
                 <label class="label-title" for="logradouro">Logradouro</label>
                 <input
+                  id="logradouro"
                   type="text"
                   v-model="logradouro"
                   class="form-control"
@@ -40,6 +41,7 @@
               <div class="form-group">
                 <label class="label-title" for="numero">Numero</label>
                 <input
+                  id="numero"
                   type="text"
                   v-model="numero"
                   class="form-control"
@@ -56,6 +58,7 @@
               <div class="form-group">
                 <label class="label-title" for="bairro">Bairro</label>
                 <input
+                  id="bairro"
                   type="text"
                   v-model="bairro"
                   class="form-control"
@@ -69,6 +72,7 @@
               <div class="form-group">
                 <label class="label-title" for="cidade">Cidade</label>
                 <input
+                  id="cidade"
                   type="text"
                   v-model="cidade"
                   class="form-control"
@@ -84,6 +88,7 @@
               <div class="form-group">
                 <label class="label-title" for="estado">Estado</label>
                 <input
+                  id="estado"
                   type="text"
                   v-model="estado"
                   class="form-control"
@@ -97,6 +102,7 @@
               <div class="form-group">
                 <label class="label-title" for="pais">País</label>
                 <input
+                  id="pais"
                   type="text"
                   v-model="pais"
                   class="form-control"
@@ -108,8 +114,9 @@
             <!-- CEP -->
             <div class="col">
               <div class="form-group">
-                <label class="label-title" for="genero">CEP</label>
+                <label class="label-title" for="cep">CEP</label>
                 <input
+                  id="cep"
                   type="text"
                   v-model="cep"
                   class="form-control"
@@ -123,6 +130,7 @@
           <div class="form-group">
             <label class="label-title">Observação</label>
             <textarea
+              id="observacao"
               type="text"
               class="form-control"
               placeholder="próximo à ponte do Pina"
@@ -132,7 +140,7 @@
           <!-- tipo do endereço -->
           <div class="form-group">
             <label class="label-title">Tipo de Endereco</label>
-            <select class="form-control" v-model="tipoEndereco" required>
+            <select id="tipo-endereco" class="form-control" v-model="tipoEndereco" required>
               <option value="ENTREGA">Entrega</option>
               <option value="COBRANCA">Cobrança</option>
               <option value="COBRANCA_E_ENTREGA">Cobrança e Entrega</option>
@@ -144,6 +152,7 @@
           <div class="form-group">
             <label class="label-title">Nome do Endereço</label>
             <input
+              id="nome-endereco"
               type="text"
               class="form-control"
               placeholder="Casa de Praia"
@@ -152,6 +161,7 @@
           </div>
 
           <button
+            id="salvar-endereco"
             type="button"
             class="btn btn-special"
             @click="adicionaEndereco"
