@@ -34,7 +34,7 @@
             Valor unitário : R$ {{ itemPedido.valor }}
           </p>
           <p id="preco-total" class="mb-0">
-            Valor Total : R$ {{ itemPedido.quantidade * itemPedido.valor }}
+            Valor Total : R$ {{ (itemPedido.quantidade * itemPedido.valor).toFixed(2) }}
           </p>
         </div>
         <router-link

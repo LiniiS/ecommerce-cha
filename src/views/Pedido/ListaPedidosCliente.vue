@@ -35,7 +35,7 @@
             >
           </p>
           <p id="item-preco" class="mb-0 font-weight-bold">
-            Valor total : R$ {{ pedido.valorTotal }}
+            Valor total : R$ {{ (pedido.valorTotal).toFixed(2) }}
           </p>
           <p id="item-data-pedido">Pedido em : {{ pedido.dtCriacao }}</p>
         </div>

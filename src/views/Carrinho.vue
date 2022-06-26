@@ -3,19 +3,18 @@
     <div class="row">
       <div class="col-12 text-center mb-5">
         <h4 class="pt-3">Carrinho de Compras</h4>
-        <hr>
+        <hr />
       </div>
-      
     </div>
 
     <!-- v-for para os itens do carrinho deste cliente -->
+    <div class="col-3"></div>
     <div
       v-for="itemCarrinho in itensCarrinho"
       :key="itemCarrinho.id"
       class="row mt-2 pt-3 d-flex flex-row border"
     >
       <!-- apenas espaçamento pra centralizar os cards facilmente-->
-      <div class="col-3"></div>
 
       <!-- 22/04 refatorar pra usar um component que monta esse produto, como no ProdutoBox-->
       <div class="col-md-2 m-3">
@@ -49,35 +48,57 @@
         </div>
         <div class="col-12">
           <hr />
-          
-            <a
-              href="#"
-              class="text-right"
-              @click="removeItemDoCarrinho(itemCarrinho.id)"
-              ><i class="fa fa-times text-dark" aria-hidden="true"></i> Remover
-              produto</a
-            >
-         
+
+          <a
+            href="#"
+            class="text-right"
+            @click="removeItemDoCarrinho(itemCarrinho.id)"
+            ><i class="fa fa-times text-dark" aria-hidden="true"></i> Remover
+            produto</a
+          >
         </div>
         <p class="mb-3 mr-3 mt-3 float-right">
           Total:
           <span class="font-weight-bold">
-            R$ {{ (itemCarrinho.produto.preco * itemCarrinho.quantidade).toFixed(2) }}
+            R$
+            {{
+              (itemCarrinho.produto.preco * itemCarrinho.quantidade).toFixed(2)
+            }}
           </span>
         </p>
       </div>
       <!-- ações -->
 
       <!-- espaçamento pra centralizar os cards -->
-      <div class="col-3"></div>
     </div>
-
+    <div class="row justify-content-right">
+      <div class="col-md-6 px-5  mt-2 px-md-0">
+        <select name="cupom" class="form-control" @change="onChange($event)" v-model="cupomSelecionado">
+          <option v-for="cupom in cupons" :key="cupom.id" :value="cupom.valor">
+            {{ cupom.codigo }}
+          </option>
+        </select>
+        <p href="#" class="mt-2 text-right" 
+          >Desconto R$: <i class="fa fa-money text-dark" aria-hidden="true"></i> {{ valorDesconto }} 
+          <br />Total da compra: R${{valorSemDesconto}}</p
+        >
+      </div>
+    </div>
+    <div class="col-3"></div>
     <!-- valor total dos produtos neste carrinho | FORA DO LOOP -->
     <div class="pt-2 text-right">
       <h5>
-        Total da Compra:<strong> R${{ custoTotal.toFixed(2) }} </strong>
+        Total a pagar:<strong> R${{ custoTotal.toFixed(2) }} </strong>
       </h5>
-      <button id="pagamento-stripe" type="button" class="btn btn-special" @click="checkout">Seguir para Pagamento</button>
+     
+      <button
+        id="pagamento-stripe"
+        type="button"
+        class="btn btn-special"
+        @click="checkout"
+      >
+        Seguir para Pagamento
+      </button>
     </div>
   </div>
 </template>
@@ -85,17 +106,47 @@
 import axios from "axios";
 export default {
   data() {
+    
     return {
       //itens do carrinho inicialmente vazia
       itensCarrinho: [],
       token: null,
       custoTotal: 0,
+      cupons: [],
+      cupomSelecionado: 0,
+      valorDesconto: null,
+      valorSemDesconto: null,
+
     };
   },
   name: "Carrinho",
   props: ["baseURL", "produtos"],
 
   methods: {
+    //aplicar  desconto no valor do cupom
+    onChange:function(event){  
+    
+      this.valorDesconto = event.target.value;
+       console.log(event.target.value);
+       if(this.custoTotal > this.valorDesconto){
+       this.custoTotal = this.custoTotal - this.valorDesconto;
+       }else{
+        this.custoTotal;
+       }
+    },
+    //lista cupons disponíveis do cliente
+    buscaCupons() {
+      axios
+        .get(`${this.baseURL}pedido/cliente/cupons/?token=${this.token}`)
+        .then((data) => {
+          this.cupons = data.data;
+          console.log(this.cupons);
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    },
+    
     //buscar todos os itens no carrinho
     listaItensDoCarrinho() {
       axios
@@ -107,6 +158,7 @@ export default {
           this.itensCarrinho = result.itensCarrinho;
           console.log(result);
           this.custoTotal = result.custoTotal;
+          this.valorSemDesconto = result.custoTotal;
         })
         .catch((err) => console.log("err", err));
     },
@@ -125,16 +177,20 @@ export default {
         .catch((err) => console.log("err", err));
     },
 
-    checkout(){
-      this.$router.push({name: 'Checkout'});
-    }
+    checkout() {
+      this.$router.push({ name: "Checkout" });
+    },
   },
+ 
+    
+ 
 
   //a seção mounted é chamada antes da pagian ser carregada
   mounted() {
     this.token = localStorage.getItem("token");
     //busca os itens do carrinho e salva na variável itemsCarrinho[]
     this.listaItensDoCarrinho();
+    this.buscaCupons();
   },
 };
 </script>

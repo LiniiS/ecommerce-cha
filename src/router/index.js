@@ -23,6 +23,8 @@ import ListaPedidosCliente from '../views/Pedido/ListaPedidosCliente'
 import ExibirDetalhesPedido from '../views/Pedido/ExibirDetalhesPedido'
 import SolicitarTrocaItemPedido from '../views/Pedido/SolicitarTrocaItemPedido'
 
+import ExibirCuponsDoCliente from '../views/Cupom/ExibirCuponsDoCliente'
+
 import Categoria from '../views/Categoria/Categoria'
 import AdicionaCategoria from '../views/Categoria/AdicionaCategoria'
 import EditaCategoria from '../views/Categoria/EditaCategoria'
@@ -35,6 +37,7 @@ import ExibirDetalhesProduto from '../views/Produto/ExibirDetalhesProduto'
 import ListaTodosProdutos from '../views/Produto/ListaTodosProdutos'
 
 import ExibirSolicitacaoTrocas from '../views/Troca/ExibirSolicitacaoTrocas'
+import ExibirSolicitacaoTrocasDoCliente from '../views/Troca/ExibirSolicitacaoTrocasDoCliente'
 
 import Carrinho from '../views/Carrinho.vue'
 
@@ -85,7 +88,7 @@ const routes = [
   },
   {
     path: '/admin/trocas',
-    name:'ExibirSolicitacaoTrocas',
+    name: 'ExibirSolicitacaoTrocas',
     component: ExibirSolicitacaoTrocas
   },
   //gerenciamento de vendas (grafico mockado)
@@ -119,7 +122,7 @@ const routes = [
   },
   {
     path: '/produto/todos',
-    name:  'ListaTodosProdutos',
+    name: 'ListaTodosProdutos',
     component: ListaTodosProdutos
   },
 
@@ -166,64 +169,76 @@ const routes = [
     name: 'AdicionaEndereco',
     component: AdicionaEndereco
   },
- { path: '/cliente/editaEndereco/:id',
-  name: 'EditaEndereco',
-  component: EditaEndereco
-},
- //cartões
- {
-  path: '/cliente/cartao',
-  name: 'Cartao',
-  component: Cartao
-},
-{
-  path: '/cliente/adicionaCartao',
-  name: 'AdicionaCartao',
-  component: AdicionaCartao
-},
-{ path: '/cliente/editaCartao/:id',
-name: 'EditaCartao',
-component: EditaCartao
-},
-//carrinho de compras
-{
-  path: '/carrinho',
-  name: 'Carrinho',
-  component: Carrinho
-},
-//Pagamento Simplificado via API STRIPE
-{
-  path: '/pagamento/sucesso',
-  name: 'Sucesso',
-  component: Sucesso
-},
-{
-  path: '/pagamento/erro',
-  name: 'Erro',
-  component: Erro
-},
-{
-  path: '/pagamento/checkout',
-  name: 'Checkout',
-  component: Checkout
+  {
+    path: '/cliente/editaEndereco/:id',
+    name: 'EditaEndereco',
+    component: EditaEndereco
+  },
+  //cartões
+  {
+    path: '/cliente/cartao',
+    name: 'Cartao',
+    component: Cartao
+  },
+  {
+    path: '/cliente/adicionaCartao',
+    name: 'AdicionaCartao',
+    component: AdicionaCartao
+  },
+  {
+    path: '/cliente/editaCartao/:id',
+    name: 'EditaCartao',
+    component: EditaCartao
+  },
+  //carrinho de compras
+  {
+    path: '/carrinho',
+    name: 'Carrinho',
+    component: Carrinho
+  },
+  //Pagamento Simplificado via API STRIPE
+  {
+    path: '/pagamento/sucesso',
+    name: 'Sucesso',
+    component: Sucesso
+  },
+  {
+    path: '/pagamento/erro',
+    name: 'Erro',
+    component: Erro
+  },
+  {
+    path: '/pagamento/checkout',
+    name: 'Checkout',
+    component: Checkout
 
-},
-//Pedidos
-{
-  path: '/cliente/pedidos',
-  name: 'ListaPedidosCliente',
-  component: ListaPedidosCliente
-},
-{
-  path: '/cliente/pedido/:id',
-  name: 'ExibirDetalhesPedido',
-  component: ExibirDetalhesPedido
-},  
-{
-  path: '/cliente/troca/:id',
-  name: 'SolicitarTrocaItemPedido',
-  component: SolicitarTrocaItemPedido
-}
+  },
+  //Pedidos
+  {
+    path: '/cliente/pedidos',
+    name: 'ListaPedidosCliente',
+    component: ListaPedidosCliente
+  },
+  {
+    path: '/cliente/pedido/:id',
+    name: 'ExibirDetalhesPedido',
+    component: ExibirDetalhesPedido
+  },
+  {
+    path: '/cliente/troca/:id',
+    name: 'SolicitarTrocaItemPedido',
+    component: SolicitarTrocaItemPedido
+  },
+  {
+    path: '/cliente/trocas',
+    name: 'ExibirSolicitacaoTrocasDoCliente',
+    component: ExibirSolicitacaoTrocasDoCliente
+  },
+  {
+    path: '/cliente/cupons',
+    name: 'ExibirCuponsDoCliente',
+    component: ExibirCuponsDoCliente
+  }
 ]
 
 const router = createRouter({

@@ -94,6 +94,7 @@ export default {
     //script + library pro Stripe
     this.stripe = window.Stripe(this.stripeAPIToken);
     this.buscaItensCarrinho();
+
    
   },
 };

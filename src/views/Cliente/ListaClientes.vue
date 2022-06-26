@@ -36,7 +36,7 @@ export default {
   methods: {
     async fetchUserData() {
       await axios
-        .get(this.baseURL + "cliente/admin/clientes")
+        .get(this.baseURL + "/admin/clientes")
         .then((res) => {
           this.clientes = res.data;
           console.log(res.data);

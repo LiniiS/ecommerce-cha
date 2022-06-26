@@ -15,7 +15,11 @@
     <!-- search cliente -->
     <hr />
     <router-link :to="{ name: 'Admin' }">
-      <button type="button" class="btn btn-special float-left mb-2" role="group">
+      <button
+        type="button"
+        class="btn btn-special float-left mb-2"
+        role="group"
+      >
         Voltar
       </button>
     </router-link>
@@ -23,7 +27,7 @@
       <div class="form-row">
         <div class="form-group">
           <label class="text-muted text-left" for="cliente"
-            >Filtrar pelo nome:</label
+            >Filtrar pelo defeito:</label
           >
           <input
             type="search"
@@ -38,41 +42,50 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Id do Cliente</th>
+            <th>Troca</th>
+             <th>Cliente</th>
             <th>Motivo da Troca</th>
             <th>Id do Item</th>
+            <th>Status</th>
+
             <th>Ações</th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="troca of trocasComFiltro" :key="troca.id">
+            <td>{{ troca.id }}</td>
             <td>{{ troca.clienteId }}</td>
             <td>{{ troca.motivo }}</td>
             <td>{{ troca.itemPedidoId }}</td>
+            <td>{{ troca.status }}</td>
+
             <td>
-              <button class="btn">
-                <img
-                  src="https://img.icons8.com/ios/24/000000/id-not-verified.png"
-                />
-                Autorizar troca
+              <button
+                class="btn btn-special mr-2"
+                @click="autorizarTroca(troca.id)"
+              >
+                <img src="https://img.icons8.com/ios/20/ffffff/ok--v1.png" />
+                Autorizar
               </button>
 
-              <button class="btn">
+              <button class="btn btn-special" @click="rejeitarTroca(troca.id)">
                 <img
-                  src="https://img.icons8.com/ios/24/000000/delete--v1.png"
+                  src="https://img.icons8.com/ios/20/ffffff/delete--v1.png"
                 />
-                Rejeitar troca
+                Rejeitar
               </button>
             </td>
           </tr>
         </tbody>
       </table>
+      <hr />
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import sweetAlert from "sweetalert";
 
 export default {
   name: "ExibirSolicitacaoTrocas",
@@ -81,12 +94,55 @@ export default {
     return {
       trocas: null,
       filtro: "",
+      solicitacoes: [],
     };
   },
   props: ["baseURL"],
+  methods: {
+    /*
+    listaTrocas(){
+      axios.get(`${this.baseURL}pedido/trocas`).then((res) => {
+        const result = res.data;
+        this.solicitacoes = result.trocas;        
+        })
+    },
+
+  */
+    //"trocas.2.id"
+
+    autorizarTroca(id) {
+      //mover pra controller de trocas
+      axios.post(`${this.baseURL}admin/troca/autoriza/${id}`).then(
+        (response) => {
+          if (response.status === 201) {
+            sweetAlert({
+              text: "Troca autorizada! Cupom gerado com sucesso!",
+              icon: "success",
+            });
+          }
+        },
+        (err) => console.log(err)
+      );
+    },
+
+    rejeitarTroca(id) {
+      //mover pra controller de trocas
+      axios.post(`${this.baseURL}admin/troca/rejeita/${id}`).then(
+        (response) => {
+          if (response.status === 200) {
+            sweetAlert({
+              text: "Troca rejeitada!",
+              icon: "success",
+            });
+          }
+        },
+        (err) => console.log(err)
+      );
+    },
+  },
   created() {
     axios
-    //  .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
+      //  .get("https://api-asantos-cha.herokuapp.com/cliente/admin/clientes")
       .get(`${this.baseURL}pedido/trocas`)
       .then((resp) => {
         this.trocas = resp.data;
@@ -108,5 +164,8 @@ export default {
 h3 {
   color: #2c3e50;
   font-weight: bold;
+}
+.btn-special {
+  font-size: 0.7em;
 }
 </style>

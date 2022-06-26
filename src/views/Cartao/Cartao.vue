@@ -45,7 +45,9 @@
               :to="{ name: 'EditaCartao', params: { id: cartao.id } }"
               >Editar</router-link
             >
-            <a href="#" class="card-link">Excluir</a>
+            <a href="#" class="card-link" @click="removeCartao(cartao.id)"
+              >Excluir</a
+            >
           </div>
         </div>
       </div>
@@ -75,6 +77,18 @@ export default {
         .catch((err) => {
           console.log("err", err);
         });
+    },
+
+    removeCartao(cartaoId) {
+      axios
+        .delete(`${this.baseURL}cartao/deleta/${cartaoId}/?token=${this.token}`)
+        //após deletar, envia o cliente pro topo da pagina
+        .then((res) => {
+          if (res.status === 200) {
+            this.$router.go(0);
+          }
+        })
+        .catch((err) => console.log("err", err));
     },
   },
 

@@ -22,7 +22,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ endereco.nome }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ endereco.cidade }}</h6>
-           <!--
+            <!--
             <small class="card-title">{{ endereco.tipoEndereco }}</small>
             -->
             <p class="card-text">
@@ -36,7 +36,7 @@
                 <span class="badge badge-info">Entrega</span>
               </template>
             </p>
-                        
+
             <p class="card-text">
               {{ endereco.observacao }}
             </p>
@@ -46,8 +46,9 @@
               :to="{ name: 'EditaEndereco', params: { id: endereco.id } }"
               >Editar</router-link
             >
-            <a href="#" class="card-link">Excluir</a>
-
+            <a href="#" class="card-link" @click="removeEndereco(endereco.id)"
+              >Excluir</a
+            >
           </div>
         </div>
       </div>
@@ -77,6 +78,18 @@ export default {
         .catch((err) => {
           console.log("err", err);
         });
+    },
+
+    removeEndereco(enderecoId) {
+      axios
+        .delete(`${this.baseURL}endereco/deleta/${enderecoId}/?token=${this.token}`)
+        //após deletar, envia o cliente pro topo da pagina
+        .then((res) => {
+          if (res.status === 200) {
+            this.$router.go(0);
+          }
+        })
+        .catch((err) => console.log("err", err));
     },
   },
 

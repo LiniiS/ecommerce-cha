@@ -68,16 +68,16 @@ export default {
     //post no endpoint de update de senha do cliente
     async alteraSenha(e) {
       e.preventDefault();
-      if(this.novaSenha == this.NovaSenhaVerificada) {
+      if(this.novaSenha == this.novaSenhaVerificada) {
         const pswdUpdated = {
-          senha: this.novaSenha,
-          senhaVerificada: this.novaSenhaVerificada
+          novaSenha: this.novaSenha,
+          novaSenhaVerificada: this.novaSenhaVerificada
 
         };
         console.log(pswdUpdated);
       await axios
           .put(
-            `${this.baseURL}cliente/atualiza/senha/${this.token}`,
+            `${this.baseURL}cliente/atualiza/senha/?token=${this.token}`,
             pswdUpdated
           )
           .then((response) => {
