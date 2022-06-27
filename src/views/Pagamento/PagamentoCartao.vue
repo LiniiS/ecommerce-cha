@@ -4,7 +4,9 @@
       <div class="col-3"></div>
 
       <div class="col-md-6 col-12 pt-3 pt-md-0 text-center border">
-        <h4>Pagamento do Pedido #{{ pedido.id }}</h4>
+        <h4 class="card-title font-weight-bold mt-3">
+          Pagamento do Pedido #{{ pedido.id }}
+        </h4>
         <h6 class="font-italic">Status do pedido: {{ pedido.status }}</h6>
         <h6 class="font-weight-bold"><hr /></h6>
         <p class="font-weight-bold">
@@ -14,7 +16,7 @@
         <form @submit="paga" class="mt-4 row justify-content-center">
           <div class="col-md-6 px-5 px-md-0">
             <form name="novo-pedido">
-              <div class="form-group">
+              <div class="form-group text-left">
                 <label>Selecione um Cartão para Pagamento</label>
                 <select
                   id="cartao"
@@ -30,13 +32,8 @@
                     {{ cartao.nomeImpresso }}
                   </option>
                 </select>
-                <label>Selecione um Endereço</label>
-                <select
-                  id="endereco"
-                  class="form-control"
-                  v-model="endereco"
-                  required
-                >
+                <label class="mt-2">Selecione um Endereço</label>
+                <select id="endereco" class="form-control" v-model="endereco">
                   <option
                     v-for="endereco in enderecos"
                     :key="endereco.id"
@@ -45,7 +42,7 @@
                     {{ endereco.nome }}
                   </option>
                 </select>
-                <label>Selecione um Cupom</label>
+                <label class="mt-2">Selecione um Cupom</label>
                 <select
                   @change="onChange($event)"
                   id="cupom"
@@ -70,13 +67,29 @@
                 pedido.valorTotal - valorDesconto
               }}
             </p>
-            <button id="solicitar-pagamento" class="btn btn-special mt-2 mb-3">
+            <button
+              id="solicitar-pagamento"
+              class="btn btn-block btn-special mt-2 mb-3"
+            >
               Pagar
             </button>
           </div>
         </form>
+        <div class="row justify-content-center">
+          <router-link :to="{ name: 'ListaPedidosCliente' }">
+            <button
+              id="ver-pedidos"
+              type="button"
+              class="btn btn-special float-left mb-2"
+              role="group"
+            >
+              Ver Pedidos
+            </button>
+          </router-link>
+        </div>
       </div>
     </div>
+    
   </div>
   <div class="col-3"></div>
 </template>
@@ -87,7 +100,7 @@ import ListaPedidosCliente from "../Pedido/ListaPedidosCliente.vue";
 //import sweetAlert from "sweetalert";
 
 export default {
-  name: "Pagamento",
+  name: "PagamentoCartao",
 
   data() {
     return {
@@ -141,9 +154,10 @@ export default {
       await axios
         .post(`${this.baseURL}pagamento/novo/?token=${this.token}`, pagamento)
         .then((res) => {
-          if (res.status == 200) {
+          if (res.status == 201) {
             this.$router.push({ name: ListaPedidosCliente });
           }
+          this.$router.push({ name: ListaPedidosCliente });
         });
     },
 
@@ -219,6 +233,9 @@ h3 {
   font-weight: bold;
 }
 .btn-special {
-  font-size: 0.7em;
+  font-size: 0.8em;
+}
+#ver-pedidos {
+  font-size: 0.6em;
 }
 </style>
