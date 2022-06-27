@@ -71,7 +71,7 @@ export default {
   methods: {
     fetchEnderecos() {
       axios
-        .get(`${this.baseURL}endereco/lista/${this.token}`)
+        .get(`${this.baseURL}endereco/lista/?token=${this.token}`)
         .then((data) => {
           this.enderecos = data.data;
         })

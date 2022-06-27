@@ -72,16 +72,21 @@
       <!-- espaçamento pra centralizar os cards -->
     </div>
     <div class="row justify-content-right">
-      <div class="col-md-6 px-5  mt-2 px-md-0">
-        <select name="cupom" class="form-control" @change="onChange($event)" v-model="cupomSelecionado">
+      <div class="col-md-6 px-5 mt-2 px-md-0">
+        <select
+          name="cupom"
+          class="form-control"
+          @change="onChange($event)"
+          v-model="cupomSelecionado"
+        >
           <option v-for="cupom in cupons" :key="cupom.id" :value="cupom.valor">
             {{ cupom.codigo }}
           </option>
         </select>
-        <p href="#" class="mt-2 text-right" 
-          >Desconto R$: <i class="fa fa-money text-dark" aria-hidden="true"></i> {{ valorDesconto }} 
-          <br />Total da compra: R${{valorSemDesconto}}</p
-        >
+        <p href="#" class="mt-2 text-right">
+          Desconto R$: <i class="fa fa-money text-dark" aria-hidden="true"></i>
+          {{ valorDesconto }} <br />Total da compra: R${{ valorSemDesconto }}
+        </p>
       </div>
     </div>
     <div class="col-3"></div>
@@ -90,15 +95,26 @@
       <h5>
         Total a pagar:<strong> R${{ custoTotal.toFixed(2) }} </strong>
       </h5>
-     
+
       <button
         id="pagamento-stripe"
         type="button"
         class="btn btn-special"
         @click="checkout"
       >
-        Seguir para Pagamento
+        Pagar via Stripe
       </button>
+
+      <router-link
+        :to="{
+          name: 'Pagamento',
+        }"
+        id="pagamento-cartao"
+        type="button"
+        class="btn btn-special"
+      >
+        Pagar via TeaShop
+      </router-link>
     </div>
   </div>
 </template>
@@ -106,7 +122,6 @@
 import axios from "axios";
 export default {
   data() {
-    
     return {
       //itens do carrinho inicialmente vazia
       itensCarrinho: [],
@@ -116,7 +131,6 @@ export default {
       cupomSelecionado: 0,
       valorDesconto: null,
       valorSemDesconto: null,
-
     };
   },
   name: "Carrinho",
@@ -124,15 +138,14 @@ export default {
 
   methods: {
     //aplicar  desconto no valor do cupom
-    onChange:function(event){  
-    
+    onChange: function (event) {
       this.valorDesconto = event.target.value;
-       console.log(event.target.value);
-       if(this.custoTotal > this.valorDesconto){
-       this.custoTotal = this.custoTotal - this.valorDesconto;
-       }else{
+      console.log(event.target.value);
+      if (this.custoTotal > this.valorDesconto) {
+        this.custoTotal = this.custoTotal - this.valorDesconto;
+      } else {
         this.custoTotal;
-       }
+      }
     },
     //lista cupons disponíveis do cliente
     buscaCupons() {
@@ -146,7 +159,7 @@ export default {
           console.log("err", err);
         });
     },
-    
+
     //buscar todos os itens no carrinho
     listaItensDoCarrinho() {
       axios
@@ -180,10 +193,10 @@ export default {
     checkout() {
       this.$router.push({ name: "Checkout" });
     },
+    pagamento() {
+      this.$router.push({ name: "Pagamento" });
+    },
   },
- 
-    
- 
 
   //a seção mounted é chamada antes da pagian ser carregada
   mounted() {

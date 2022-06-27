@@ -84,6 +84,8 @@ export default {
           //console.log("session", response.data);
           this.stripe.redirectToCheckout({
               sessionId: session.sessaoId
+
+          
            });
         });
        // .catch((err) => console.log(err));

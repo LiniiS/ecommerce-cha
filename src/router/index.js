@@ -45,6 +45,9 @@ import Sucesso from '../views/Pagamento/Sucesso'
 import Erro from '../views/Pagamento/Erro'
 import Checkout from '../views/Checkout/Checkout'
 
+import Pagamento from '../views/Pagamento/Pagamento'
+import PagamentoCartao from '../views/Pagamento/PagamentoCartao'
+
 
 const routes = [
   {
@@ -211,8 +214,18 @@ const routes = [
     path: '/pagamento/checkout',
     name: 'Checkout',
     component: Checkout
-
   },
+{
+  path: '/pagamento',
+  name: 'Pagamento',
+  component: Pagamento
+},
+{
+  path: '/pagamento/cartao',
+  name: 'PagamentoCartao',
+  component: PagamentoCartao
+},
+
   //Pedidos
   {
     path: '/cliente/pedidos',

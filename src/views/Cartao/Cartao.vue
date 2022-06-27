@@ -70,7 +70,7 @@ export default {
   methods: {
     fetchCartoes() {
       axios
-        .get(`${this.baseURL}cartao/lista/${this.token}`)
+        .get(`${this.baseURL}cartao/lista/?token=${this.token}`)
         .then((data) => {
           this.cartoes = data.data;
         })
